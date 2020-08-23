@@ -1,0 +1,15 @@
+.step {
+	margin-top: 50px;
+	text-align: center;
+}
+.step__number {
+	font-weight: 300;
+	font-size: 36px;
+	color: var(--grey);
+}
+.step__title {
+	color: var(--darkgrey);
+	font-weight: 700;
+	font-size: 36px;
+	margin-left: 15px;
+}

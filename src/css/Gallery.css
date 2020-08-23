@@ -1,0 +1,28 @@
+.gallery {
+	display: none;
+	flex-wrap: wrap;
+}
+.gallery--active {
+	display: flex;
+}
+.gallery__photo {
+	width: calc(20% - 50px);
+	margin-right: 50px;
+	margin-top: 50px;
+}
+.gallery__photo-img {
+	width: 100%;
+	border-radius: 2px;
+	box-shadow: 1px 1px 4px -1px lightgrey;
+}
+.gallery__attr {
+	margin-top: 7px;
+    color: var(--darkgrey);
+    font-size: 12px;
+    line-height: 15px;
+}
+.gallery__link {
+	margin-top: 5px;
+	color: var(--grey);
+	text-decoration: underline;
+}

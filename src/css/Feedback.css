@@ -1,0 +1,18 @@
+.feedb {
+	text-align: center;
+	margin-top: 100px;
+}
+.feedb__text {
+	color: var(--darkgrey);
+    font-weight: 700;
+    font-size: 32px;
+    display: block;
+}
+.feedb__action-text {
+	color: var(--blue);
+    font-weight: 700;
+    font-size: 28px;
+    display: block;
+    margin-top: 20px;
+    cursor: pointer;
+}
