@@ -62,7 +62,6 @@ class App extends React.Component {
 	}
 
 	findPhotos() {
-		// TODO color value
 		axios.get(`https://api.unsplash.com/search/photos?query=minimal&color=${this.state.color}&page=1&orientation=${this.state.orientation}`,
 			{ headers: { 'Authorization': `Client-ID ${process.env.REACT_APP_CLIENT_ID}` }}
 		).then(async (response) => {
