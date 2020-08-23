@@ -76,7 +76,6 @@ class App extends React.Component {
 					}
 				}
 			})
-			console.log('photos', photos)
 			this.setState({
 				isLoadingVisible: false,
 				isGalleryVisible: true,
