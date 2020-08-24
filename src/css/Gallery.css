@@ -25,6 +25,7 @@
 	animation-fill-mode: forwards;
 	animation-timing-function: ease-out;
 	transform: translateX(100px);
+	min-width: 200px;
 }
 .gallery__photo-data {
 	margin-right: 50px;
@@ -115,4 +116,36 @@
 @keyframes fade {
 	from { opacity: 0 }
 	to { opacity: 1 }
+}
+
+@media all and (max-width: 768px) {
+	.gallery__photo-title {
+		font-size: 18px;
+	}
+}
+
+@media all and (max-width: 414px) {
+	.gallery__photo-title {
+		font-size: 16px;
+	}
+	.gallery__photo-img {
+		min-width: 150px;
+	}	
+	.gallery .gallery__photo {
+		flex-direction: column-reverse;
+		margin-right: 0;
+		margin-left: 0;
+	}
+	.gallery .gallery__photo .gallery__photo-data {
+		margin-right: 0;
+		margin-left: 0;
+		margin-top: 10px;
+		align-self: flex-start;
+	}
+	.gallery__photo {
+		margin-top: 100px;
+	}
+	.gallery__tags {
+		margin-top: 50px;
+	}
 }

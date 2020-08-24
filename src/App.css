@@ -39,3 +39,21 @@
 	to { visibility: visible; }
 }
 
+@media all and (max-width: 768px) {
+    .app {
+        padding: 100px 50px;
+    }
+    .app__title {
+        font-size: 32px;
+    }
+}
+
+@media all and (max-width: 414px) {
+    .app__title {
+        font-size: 28px;
+    }
+    .app__new-search {
+        margin-top: 100px;
+        text-align: left;
+    }
+}

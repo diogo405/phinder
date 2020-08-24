@@ -133,3 +133,14 @@
 @keyframes slideup {
 	to { transform: translateY(0); }
 }
+
+@media all and (max-width: 768px) {
+    .cpicker__colors {
+		height: auto;
+		overflow: unset;
+	}
+	.cpicker .color {
+		animation: none;
+		transform: translateY(0);
+	}
+}

@@ -13,3 +13,15 @@
 	font-size: 36px;
 	margin-left: 15px;
 }
+
+@media all and (max-width: 768px) {
+    .step__title, .step__number {
+        font-size: 26px;
+    }
+}
+
+@media all and (max-width: 414px) {
+    .step__title, .step__number {
+        font-size: 20px;
+    }
+}

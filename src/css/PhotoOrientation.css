@@ -110,3 +110,18 @@
 	from { visibility: visible; }
 	to { transform: rotate(720deg); visibility: visible; }
 }
+
+@media all and (max-width: 768px) {
+	.porio__portrait {
+		width: 50px;
+		height: 70px;
+	}
+	.porio__landscape {
+		width: 70px;
+		height: 50px;
+	}
+	.porio__square {
+		width: 50px;
+		height: 50px;
+	}
+}
