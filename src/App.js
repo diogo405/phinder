@@ -25,6 +25,7 @@ class App extends React.Component {
 			isResultsVisible: false,
 			isFeedbackVisible: false,
 			isGalleryVisible: false,
+			isNewSearchVisible: false,
 			isColorPickerReseted: false
 		}
 	}
@@ -32,11 +33,19 @@ class App extends React.Component {
 	render() {
 	    return (
 	        <div className="app">
+	        	<div className="app__logo">
+	        		<img className="app__logo-img" src={require('./images/streamline-icon-lab-tube-experiment@20x20.png')} alt="Logo"/>
+	        		<span className="app__logo-text">phinder</span>
+	        	</div>
 	            <h1 className="app__title">Let's find photos together!</h1>
 	            <ColorPicker visible={this.state.isColorPickerVisible} handleColorPicked={this.handleColorPicked} reset={this.state.isColorPickerReseted}/>
 	            <PhotoOrientation visible={this.state.isPhotoOrientationVisible} handleOrientationChosen={this.handleOrientationChosen}/>
 	            <Loading visible={this.state.isLoadingVisible}/>
 	            <Gallery visible={this.state.isGalleryVisible} photos={this.state.photos}/>
+	            <div className={this.state.isNewSearchVisible ? 'app__new-search app__new-search--active' : 'app__new-search'} onClick={this.reset}>
+	            	<span className="app__new-searchi" role="img" aria-label="Search icon">🔎</span>
+	            	<span className="app__new-searcht">new search</span>
+	            </div>
 	            <Feedback visible={this.state.isFeedbackVisible} feedback={this.state.feedback}/>
 	        </div>
 	    )
@@ -67,17 +76,21 @@ class App extends React.Component {
 		).then(async (response) => {
 			let photos = response.data.results.map(r => {
 				return {
+					title: r.alt_description,
 					url: r.urls.small,
 					link: r.links.html,
 					photographer: {
 						name: `${r.user.first_name} ${r.user.last_name}`,
 						url: `${r.user.links.html}?utm_source=Phinder&utm_medium=referral`,
-					}
+					},
+					tags: r.tags.map(t => t.title),
+					likes: r.likes
 				}
 			})
 			this.setState({
 				isLoadingVisible: false,
 				isGalleryVisible: true,
+				isNewSearchVisible: true,
 				photos: photos
 			})
 			
@@ -88,7 +101,8 @@ class App extends React.Component {
 					feedbackText: 'Oops something went wrong 🤷🏻‍♀️',
 					actionText: 'Click here to start over',
 					actionCallback: this.reset
-				}
+				},
+				isFeedbackVisible: true
 			})
 		}).finally(() => {
 			this.setState({isLoadingVisible: false})
@@ -105,7 +119,8 @@ class App extends React.Component {
 			isPhotoOrientationVisible: false,
 			isLoadingVisible: false,
 			isResultsVisible: false,
-			isFeedbackVisible: false			
+			isFeedbackVisible: false,
+			isNewSearchVisible: false			
 		})
 	}
 }

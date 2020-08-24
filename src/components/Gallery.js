@@ -9,12 +9,18 @@ class Gallery extends React.Component {
 				{this.props.photos.map(p => {
 					return (
 						<div className="gallery__photo">
-							<a href={p.link} target="_blank">
-								<img src={p.url} className="gallery__photo-img"/>
-							</a>
-							<div className="gallery__attr">
-								Photo by <a className="gallery__link" href={p.photographer.url} target="_blank">{p.photographer.name}</a> on <a className="gallery__link" href="https://unsplash.com/?utm_source=Phinder&utm_medium=referral" target="_blank">Unsplash</a>
+							<div className="gallery__photo-data">
+								<h2 className="gallery__photo-title">{p.title}</h2>
+								<div className="gallery__photo-attr">
+									By <a className="gallery__link" href={p.photographer.url} target="_blank" rel="noopener noreferrer">{p.photographer.name}</a> on <a className="gallery__link" href="https://unsplash.com/?utm_source=Phinder&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a>
+								</div>
+								<div className="gallery__tags">
+								{p.tags.map(t => <span className="gallery__tag">{t}</span>)}
+								</div>
 							</div>
+							<a href={p.link} target="_blank" rel="noopener noreferrer">
+								<img src={p.url} className="gallery__photo-img" alt="p.title"/>
+							</a>
 						</div>
 					)
 				})}

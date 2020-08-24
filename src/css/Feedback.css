@@ -1,6 +1,10 @@
 .feedb {
 	text-align: center;
 	margin-top: 100px;
+    display: none;
+}
+.feedb--active {
+    display: block;
 }
 .feedb__text {
 	color: var(--darkgrey);
