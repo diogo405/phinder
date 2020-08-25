@@ -1,4 +1,4 @@
-# Phinder
+# 🕵🏻‍♀️ Phinder
 A React App that searches photos using Unsplash API.
 
 ## Architecture
