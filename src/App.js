@@ -25,8 +25,7 @@ class App extends React.Component {
 			isResultsVisible: false,
 			isFeedbackVisible: false,
 			isGalleryVisible: false,
-			isNewSearchVisible: false,
-			isColorPickerReseted: false
+			isNewSearchVisible: false
 		}
 	}
 
@@ -38,7 +37,7 @@ class App extends React.Component {
 	        		<span className="app__logo-text">phinder</span>
 	        	</div>
 	            <h1 className="app__title">Let's find photos together!</h1>
-	            <ColorPicker visible={this.state.isColorPickerVisible} handleColorPicked={this.handleColorPicked} reset={this.state.isColorPickerReseted}/>
+	            <ColorPicker visible={this.state.isColorPickerVisible} handleColorPicked={this.handleColorPicked} selected={this.state.color}/>
 	            <PhotoOrientation visible={this.state.isPhotoOrientationVisible} handleOrientationChosen={this.handleOrientationChosen}/>
 	            <Loading visible={this.state.isLoadingVisible}/>
 	            <Gallery visible={this.state.isGalleryVisible} photos={this.state.photos}/>
@@ -63,8 +62,7 @@ class App extends React.Component {
 			isColorPickerVisible: false,
 			isPhotoOrientationVisible: false,
 			orientation: orientation,
-			isLoadingVisible: true,
-			isColorPickerReseted: true
+			isLoadingVisible: true
 		}, () => {
 			this.findPhotos()
 		})

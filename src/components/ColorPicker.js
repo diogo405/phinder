@@ -46,19 +46,15 @@ class ColorPicker extends React.Component {
 					<span>r</span>
 				</span>
 				<div className="cpicker__colors">
-					{this.state.colors.map(c => { return <Color code={c.code} name={c.name} selected={this.props.reset ? false : c.selected} handleColorSelected={this.handleColorSelected} key={c.code}/> })}
+					{this.state.colors.map(c => { 
+						const isSelected = c.name === this.props.selected
+						return <Color code={c.code} name={c.name} selected={isSelected} handleColorSelected={this.handleColorSelected} key={c.code}/> })}
 				</div>
 			</div>
 		)
 	}
 
 	handleColorSelected(colorName) {
-		this.setState(state => {
-			let colors = state.colors.map(c => {
-				return {name: c.name, code: c.code, selected: c.name === colorName}
-			})
-			return {colors: colors}
-		})
 		this.props.handleColorPicked(colorName)
 	}
 }
